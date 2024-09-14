@@ -1,0 +1,29 @@
+.category{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 100px;
+    gap: 80px;
+    width: 80%;
+    h2{
+        font-weight: 400;
+        font-size: 18px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}
+.pad{
+    padding: 0 30px;
+}
+.main{
+    width: 100%;
+    /* padding: 0 200px; */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.347);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.active{
+    border-bottom: 3px solid rgb(81, 81, 81);
+}
