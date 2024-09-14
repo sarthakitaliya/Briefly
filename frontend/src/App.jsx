@@ -19,7 +19,7 @@ function App() {
     try {
       setError(false);
       setLoading(true);
-      const response = await axios.get(`/api/${category}`); 
+      const response = await axios.get(`https://briefly-yqee.onrender.com/api/${category}`); 
       setData(response.data.articles);
       setLoading(false);
     } catch (error) {
