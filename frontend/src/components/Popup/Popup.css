@@ -19,6 +19,7 @@
     border: none;
     color: black;
     font-size: 28px;
+    cursor: pointer;
 }
 h1{
     font-size: 25px;
