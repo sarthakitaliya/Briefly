@@ -29,7 +29,7 @@ const Popup = ({popupData, setPopupData}) => {
         try {
             setLoading(true);
             const result = await axios({
-                url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${process.env.API_KEY}`,
+                url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyCypxmHQ6oWLDyxug0OFTPaZEGQNwv9Z74',
                 method: "post",
                 data: {
                     contents:[
