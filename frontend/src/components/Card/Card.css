@@ -36,3 +36,32 @@ img{
     }
     
 }
+@media (max-width: 1440px) {
+    .card{
+        width: 500px;
+    }
+    .text{
+        font-size: 22px;
+    }
+    .source{
+        font-size: 22px;
+    }
+}
+@media (max-width: 1200px) {
+    .card{
+        width: 400px;
+    }
+    .text{
+        font-size: 18px;
+    }
+    .source{
+        font-size: 18px;
+    }
+}
+@media (max-width: 840px) {
+    .card{
+        height: auto;
+        width: auto;
+    }
+    
+}

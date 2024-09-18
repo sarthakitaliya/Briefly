@@ -17,3 +17,13 @@
         color: black;
     }
 }
+@media (max-width: 1440px) {
+    .card-page{
+        justify-content: space-around;
+    }
+}
+@media (max-width: 1200px) {
+    .card-page{
+        padding: 20px 20px;
+    }
+}
