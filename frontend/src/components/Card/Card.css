@@ -1,9 +1,21 @@
 .card{
-    height: 400px;
+    height: auto;
     width: 400px;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease;
+    .source{
+        margin-top: 20px;
+        font-weight: 500;
+
+        a{
+            text-decoration: underline;
+            color: #000;
+        }
+        a:hover{
+            color: rgb(190, 65, 65);
+        }
+    }
 }
 
 .card:hover {
@@ -22,4 +34,5 @@ img{
     p{
         margin-top: 5px;
     }
+    
 }

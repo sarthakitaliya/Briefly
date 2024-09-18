@@ -1,11 +1,11 @@
 import './CardPage.css'
 import Card from '../Card/Card'
 
-const CardPage = ({data, loading, error, popupData, setPopupData}) => {
+const CardPage = ({news, loading, error, popupData, setPopupData}) => {
     if(error){
         return(
             <div className='error'>
-                <h1>Something went wrong</h1>
+                <h1>{news.message}</h1>
             </div>
         )
     }
@@ -18,10 +18,12 @@ const CardPage = ({data, loading, error, popupData, setPopupData}) => {
     }
     return (
     <div className='card-page'>
-        {data && data.length > 0 ? (
-        data.map((item, idx) => (
-          <Card key={idx} item={item} setPopupData={setPopupData} /> // Render each card
-        ))
+        {news.data ? (
+        news.data.articles.map((item, idx) => {
+            if(item.title !== '[Removed]' && item.description !== '[Removed]') {
+                return <Card key={idx} item={item} setPopupData={setPopupData} popupData={popupData} />;
+            }
+        })
         ) : (
         <div className="not-av">
             <h1>No data available for this category</h1>

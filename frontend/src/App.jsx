@@ -9,18 +9,18 @@ import Popup from './components/Popup/Popup.jsx';
 
 function App() {
   
-  const [category, setCategory] = useState("latest")
-  const [data, setData] = useState([]);
+  const [category, setCategory] = useState("general")
+  const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [popupData, setPopupData] = useState(null);
+  const [popupData, setPopupData] = useState("");
 
-  const fetchCategoryData = async () => {
+  async function fetchNews() {
     try {
       setError(false);
       setLoading(true);
-      const response = await axios.get(`https://briefly-yqee.onrender.com/api/${category}`); 
-      setData(response.data.articles);
+      const response = await axios.get(`http://localhost:3000/api/top-headlines?category=${category}`)
+      setNews(response.data);      
       setLoading(false);
     } catch (error) {
       setError(true);
@@ -28,18 +28,19 @@ function App() {
       setData([]); 
       setLoading(false);
     }
-  };
+  }
+  
 
   useEffect(() => {
-    fetchCategoryData();     
+    fetchNews();     
   }, [category]);
-
+  
   return (
     <>
       <Navbar />
       <Popup popupData={popupData} setPopupData={setPopupData} />
       <Categories category={category} setCategory={setCategory} />  
-      <CardPage loading={loading} data={data} error={error} popupData={popupData} setPopupData={setPopupData} />
+      <CardPage loading={loading} news={news} error={error} popupData={popupData} setPopupData={setPopupData} />
     </>
   )
 }
