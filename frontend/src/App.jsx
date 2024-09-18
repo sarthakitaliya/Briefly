@@ -19,7 +19,7 @@ function App() {
     try {
       setError(false);
       setLoading(true);
-      const response = await axios.get(`http://localhost:3000/api/top-headlines?category=${category}`)
+      const response = await axios.get(`https://briefly-yqee.onrender.com/api/top-headlines?category=${category}`)
       setNews(response.data);      
       setLoading(false);
     } catch (error) {

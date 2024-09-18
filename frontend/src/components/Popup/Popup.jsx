@@ -20,7 +20,7 @@ const Popup = ({popupData, setPopupData}) => {
     const generateSummary = async () => {
         try{
             setLoading(true);
-            const response = await axios.post('http://localhost:3000/api/generate-summary', {
+            const response = await axios.post('https://briefly-yqee.onrender.com/api/generate-summary', {
                 articleText: popupData
             });            
             setSummary(response.data.summary);
