@@ -28,3 +28,17 @@ h1{
 p{
     margin-top: 20px;
 }
+@media (max-width: 940px) {
+    .pop-up{
+        height: auto;
+        width: auto;
+    }
+}
+@media (max-width: 640px) {
+    .pop-up{
+        height: 98vh;
+        width: 98vw;
+        left: 5px;
+        top: 5px;
+    }
+}
