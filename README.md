@@ -1,4 +1,4 @@
-#Briefly                [Live Link](https://briefly-frontend.onrender.com/)
+# Briefly                [Live Link](https://briefly-frontend.onrender.com/)
 Briefly is a news application that displays articles in brief and provides AI-generated summaries using the Gemini API. Users can filter news by categories and view detailed summaries when they click on articles.
 
 **Features**
