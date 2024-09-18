@@ -1,5 +1,5 @@
 .navbar{
-    width: 100%;
+    width: 100vw;
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.249); */
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.594);
     padding: 20px 80px;
@@ -27,4 +27,13 @@ input{
     cursor: pointer;
     font-size: 15px;
     background-color: rgb(255, 130, 130);
+}
+@media (max-width: 640px) {
+    .navbar{
+        padding: 10px 40px;
+    }
+    .sub{
+        padding: 8px 15px;
+        font-size: 14px;
+    }
 }

@@ -4,7 +4,7 @@
     justify-content: center;
     padding: 20px 100px;
     gap: 80px;
-    width: 80%;
+    width: auto;
     h2{
         font-weight: 400;
         font-size: 18px;
@@ -13,17 +13,33 @@
     }
 }
 .pad{
+    width: auto;
     padding: 0 30px;
+    overflow-x: auto;
 }
 .main{
     width: 100%;
-    /* padding: 0 200px; */
     border-bottom: 1px solid rgba(0, 0, 0, 0.347);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+
 }
 .active{
     border-bottom: 3px solid rgb(81, 81, 81);
+}
+@media (max-width: 1200px) {
+    .category{
+        gap: 50px;
+    }
+    .main{
+        justify-content: unset;
+    }
+}
+@media (max-width: 640px) {
+    .category{
+        gap: 40px;
+        padding: 20px 30px;
+    }
 }
