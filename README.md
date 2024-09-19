@@ -4,6 +4,7 @@ Briefly is a news application that displays articles in brief and provides AI-ge
 **Features**
 - AI-Generated Summaries: Utilizes the Gemini API to generate concise summaries for news articles.
 - Category-Based Filtering: Allows users to filter news by categories for better content navigation.
+- Email Subscription: Users can subscribe to daily news updates. Subscribers receive a welcome email upon signing up and daily news summaries delivered straight to their inbox.
 
 **Technologies Used**
 - Frontend: React.js
