@@ -27,7 +27,7 @@ const Subscribe = ({subscribePopup, setSubscribePopup}) => {
             setTimeout(() => {
                 setSubscribePopup(false);
                 setResponse('');
-            }, 3000);
+            }, 1000);
         }catch(err){
             if (err.response && err.response.data) {
                 setResponse(err.response.data.message); 
