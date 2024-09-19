@@ -1,11 +1,11 @@
 import React from 'react'
 import './Navbar.css'
 
-const Navbar = () => {
+const Navbar = ({subscribePopup, setSubscribePopup}) => {
   return (
     <div className='navbar'>
         <h1>Briefly</h1>
-        <button className='sub'>Subscribe</button>
+        <button className='sub' onClick={() => setSubscribePopup(!subscribePopup)}>Subscribe</button>
     </div>
   )
 }

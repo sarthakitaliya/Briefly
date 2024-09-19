@@ -5,6 +5,7 @@ import CardPage from './components/CardPage/CardPage.jsx';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Popup from './components/Popup/Popup.jsx';
+import Subscribe from './components/Subscribe/Subscribe.jsx';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [popupData, setPopupData] = useState("");
+  const [subscribePopup, setSubscribePopup] = useState(false);
 
   async function fetchNews() {
     try {
@@ -37,7 +39,8 @@ function App() {
   
   return (
     <>
-      <Navbar />
+      <Navbar subscribePopup={subscribePopup} setSubscribePopup={setSubscribePopup} />
+      <Subscribe subscribePopup={subscribePopup} setSubscribePopup={setSubscribePopup} />
       <Popup popupData={popupData} setPopupData={setPopupData} />
       <Categories category={category} setCategory={setCategory} />  
       <CardPage loading={loading} news={news} error={error} popupData={popupData} setPopupData={setPopupData} />

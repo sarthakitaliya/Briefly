@@ -1,0 +1,79 @@
+.sub-main{
+    position: absolute;
+    top: 0;
+    height: 150vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.258);
+    z-index: 9999;
+}
+.sub-flex{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.258);
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.594); */
+}
+.sub-container{
+    position: relative;
+    height: 300px;
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.594);
+}
+i{
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.sub-text{
+    margin-top: 50px;
+}
+.heading{
+    color: rgb(190, 65, 65);
+    margin-left: 20px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+form{
+    margin-left: 20px;
+}
+.sub-text input{
+    margin-top: 20px;
+    padding: 8px 10px;
+    width: 400px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.sub-text button{
+    margin-top: 20px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: rgb(255, 130, 130);
+}
+@media (max-width: 520px) {
+    .sub-container{
+        /* height: auto; */
+        width: auto;
+    }
+    .sub-text input{
+        width: 80vw;
+    }
+    .heading{
+        font-size: 6vw;
+    }
+}

@@ -78,3 +78,13 @@ app.post("/api/generate-summary", async (req, res) => {
     res.status(500).json({ error: 'An error occurred while generating the summary.' });
   }
 });
+
+app.post('/api/subscribe', (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    res.status(400).json({ error: 'Email is required' });
+    return;
+  }
+  console.log("success", email);
+  res.status(200).json({ message: 'Subscription successful', email: email  });
+})
