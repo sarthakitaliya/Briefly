@@ -5,12 +5,29 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const { default: axios } = require("axios");
+const mongoose = require("mongoose");
 const port = process.env.PORT || 3000;
+const nodeCron = require('node-cron');  
+const dburl = process.env.DB_URL;
+const subscriber = require("./model/subscriber");
+const { sendWelcomeEmail, sendDailyNews, fetchNews } = require("./subscription");
 
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.listen(port);
+
+
+main().then(() => {
+  console.log("connected to DB")
+})
+.catch((err) => {
+  console.log(err);
+})
+async function main(){
+  await mongoose.connect(dburl);
+}
+
 
 async function makeApiRequest(url) {
   try {
@@ -79,12 +96,34 @@ app.post("/api/generate-summary", async (req, res) => {
   }
 });
 
-app.post('/api/subscribe', (req, res) => {
+app.post('/api/subscribe', async (req, res) => {
   const { email } = req.body;
-  if (!email) {
-    res.status(400).json({ error: 'Email is required' });
-    return;
+  try{
+    if (!email) {
+      res.status(400).json({ message: 'Email is required' });
+      return;
+    }
+    const existingSubscriber = await subscriber.findOne({ email });
+    if (existingSubscriber) {
+      return res.status(400).json({ message: 'You are already subscribed!' });
+    }
+    
+    const newSubscriber = new subscriber({email});
+    await newSubscriber.save();
+    sendWelcomeEmail(email);
+    res.status(200).json({ message: 'Subscription successful', email: email  });
+
+  }catch (error) {
+    console.error('Error handling subscription:', error);
+    return res.status(500).json({message: 'Internal server error'});
   }
-  console.log("success", email);
-  res.status(200).json({ message: 'Subscription successful', email: email  });
-})
+});
+
+nodeCron.schedule('09 18 * * *', () => {
+  console.log('Sending daily news...');
+  sendDailyNews();
+}, {
+  scheduled: true,
+  timezone: "Asia/Kolkata"
+});
+  
