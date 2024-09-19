@@ -119,11 +119,15 @@ app.post('/api/subscribe', async (req, res) => {
   }
 });
 
-nodeCron.schedule('09 18 * * *', () => {
-  console.log('Sending daily news...');
-  sendDailyNews();
-}, {
-  scheduled: true,
-  timezone: "Asia/Kolkata"
-});
+try {
+  nodeCron.schedule('0 9 * * *', () => {
+    console.log('Sending daily news...');
+    sendDailyNews();
+  }, {
+    scheduled: true,
+    timezone: "Asia/Kolkata"
+  });
+} catch (error) {
+  console.log("Internal error from subscription", error);
+}
   
