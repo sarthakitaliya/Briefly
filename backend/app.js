@@ -120,7 +120,7 @@ app.post('/api/subscribe', async (req, res) => {
 });
 
 try {
-  nodeCron.schedule('0 9 * * *', () => {
+  nodeCron.schedule('30 9 * * *', () => {
     console.log('Sending daily news...');
     sendDailyNews();
   }, {
